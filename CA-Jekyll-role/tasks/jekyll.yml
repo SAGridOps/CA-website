@@ -1,8 +1,12 @@
 ---
+- name: Ensure site is up to date
+  sudo: true
+  yum: name=* state=latest
 - name: Install Jekyll dependencies
   sudo: true
   yum:
     name: "{{ item }}"
+    state: present
   with_items:
     "{{ jekyll_dependencies }}"
 
