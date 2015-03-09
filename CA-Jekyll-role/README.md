@@ -1,4 +1,5 @@
-Role Name
+[![Build Status](https://travis-ci.org/SAGridOps/CA-website.svg)](https://travis-ci.org/SAGridOps/CA-website)
+NICIS CA Website
 =========
 
 This is a role for a jekyll-based website for a certificate authority

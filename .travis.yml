@@ -1,5 +1,9 @@
 # Doesn't use containers yet, so we need to reproduce the container.
 language: bash
+branches:
+  only:
+    - master
+    - gh-pages
 before_install:
 - echo $PWD
 # We need to install Ansible
@@ -16,11 +20,8 @@ env:
 install:
 - echo "$PWD" ; ls
 - echo $TRAVIS_BUILD_DIR
-- mkdir roles ; ln -s CA-Jekyll-role roles/CA-Jekyll-role
-- cd $TRAVIS_BUILD_DIR/../
-- cp $TRAVIS_BUILD_DIR/CA.yml .
 - mkdir -p roles
-- mv zenodo-docker-role roles/
+- mv  CA-Jekyll-role roles/
 # We have to put all this stuff in the "roles" directory
 - ansible-playbook -c local CA.yml
 notifications:
