@@ -15,7 +15,9 @@ RUN git submodule update --init
 ENV PATH /opt/ansible/ansible/bin:/bin:/usr/bin:/sbin:/usr/sbin
 ENV PYTHONPATH /opt/ansible/ansible/lib
 ENV ANSIBLE_LIBRARY /opt/ansible/ansible/library
-RUN git clone https://github.com/SAGridOps/CA-website roles/CA-website
-RUN cp roles/CA-website/CA.yml .
+RUN git clone https://github.com/SAGridOps/CA-website
+WORKDIR CA-website
+RUN mkdir roles ; ln -s CA-Jekyll-role roles/CA-Jekyll-role
+RUN cp roles/CA-Jekyll-role/CA.yml .
 RUN pwd ; ls
 RUN ansible-playbook -c local CA.yml
