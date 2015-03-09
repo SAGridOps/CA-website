@@ -1,5 +1,5 @@
 ---
 - name: Announce
-  hosts: local
+  hosts: all
   roles:
     - CA-Jekyll-role
