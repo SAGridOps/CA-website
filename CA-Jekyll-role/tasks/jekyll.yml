@@ -4,4 +4,4 @@
   yum:
     name: "{{ item }}"
   with_items:
-    "{{ jekyll_dependencies }}
+    "{{ jekyll_dependencies }}"
