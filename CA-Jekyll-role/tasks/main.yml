@@ -1,2 +1,3 @@
 ---
 # tasks file for CA-Jekyll-role
+- include: jekyll
