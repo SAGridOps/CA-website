@@ -1,0 +1,6 @@
+---
+- name: Announce on Slack
+  hosts: local
+  tasks:
+    - name: First
+      module: setup
