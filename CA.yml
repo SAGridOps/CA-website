@@ -1,6 +1,5 @@
 ---
 - name: Announce
   hosts: local
-  tasks:
-    - name: First
-      module: setup
+  roles:
+    - CA-Jekyll-role
