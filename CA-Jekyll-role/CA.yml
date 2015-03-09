@@ -1,5 +1,5 @@
 ---
-- name: Announce on Slack
+- name: Announce
   hosts: local
   tasks:
     - name: First
