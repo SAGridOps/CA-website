@@ -5,3 +5,9 @@
     name: "{{ item }}"
   with_items:
     "{{ jekyll_dependencies }}"
+
+- name: Install Jekyll
+  sudo: true
+  gem:
+    name: jekyll
+    state: latest
