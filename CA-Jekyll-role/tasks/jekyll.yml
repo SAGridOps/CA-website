@@ -1,0 +1,7 @@
+---
+- name: Install Jekyll dependencies
+  sudo: true
+  yum:
+    name: "{{ item }}"
+  with_items:
+    "{{ jekyll_dependencies }}
