@@ -16,7 +16,7 @@
     name: "{{ item }}"
     state: present
   with_items:
-    "{{ base_dependencies.ansible_os_family }}"
+     base_dependencies[ansible_os_family]
   when: ansible_os_family == 'RedHat'
 
 - name: Install Base dependencies (Debian)
@@ -25,7 +25,7 @@
     name: "{{ item }}"
     state: present
   with_items:
-    base_dependencies.ansible_os_family
+    base_dependencies[ansible_os_family]
   when: ansible_os_family == 'Debian'
 
 
