@@ -4,13 +4,21 @@
 # since the ruby version is too old. We'll get that from the source packages.
 # You will need a compiler as well :) in order to build the gems
 base_dependencies:
-  - which
-  - gcc
-  - tar
-  - wget
-  - libffi-devel
-  - coreutils
-
+  RedHat:
+    - which
+    - gcc
+    - tar
+    - wget
+    - libffi-devel
+    - coreutils
+  Debian:
+    - build-essential
+    - tar
+    - wget
+    - libffi-dev
+    - libffi
+    - coreutils
+    
 ruby:
   src_url: http://cache.ruby-lang.org/pub/ruby/
   version:
