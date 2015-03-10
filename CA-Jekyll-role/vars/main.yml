@@ -12,6 +12,8 @@ base_dependencies:
     - libffi-devel
     - coreutils
     - openssl-devel
+    - nodejs
+    - npm
   Debian:
     - build-essential
     - tar
@@ -20,6 +22,8 @@ base_dependencies:
     - libffi6
     - coreutils
     - libssl-dev
+    - nodejs
+    - npm
 ruby:
   src_url: http://cache.ruby-lang.org/pub/ruby/
   version:
