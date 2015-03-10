@@ -4,10 +4,11 @@
   yum: name=* state=latest
   when: ansible_os_family == 'RedHat'
 
-- name: Ensure site is up to date (Debian)
-  sudo: true
-  apt: name=* state=latest
-  when: ansible_os_family == 'Debian'
+# Skipping this because it gives some funky errors on Travis
+#- name: Ensure site is up to date (Debian)
+#  sudo: true
+#  apt: name=* state=latest
+#  when: ansible_os_family == 'Debian'
 
 - name: Install Base dependencies (RedHat)
   sudo: true
@@ -36,17 +37,20 @@
 
 - name: Unpack Ruby
   command: tar xfz ruby.tar.gz -C /root/
+  sudo: true
   args:
     chdir: /tmp
     creates: "/root/ruby-{{ ruby.version.major }}.{{ ruby.version.minor }}.{{ ruby.version.patch }}"
 
 - name: Configure Ruby
+  sudo: true
   command: "./configure --prefix={{ ruby.install_path }}"
   args:
     chdir: "/root/ruby-{{ ruby.version.major }}.{{ ruby.version.minor }}.{{ ruby.version.patch }}"
 
 - name: Build Ruby
   command: make install
+  sudo: true
   environment: { CFLAGS: "{{ cflags }}"}
   args:
     chdir: "/root/ruby-{{ ruby.version.major }}.{{ ruby.version.minor }}.{{ ruby.version.patch }}"
