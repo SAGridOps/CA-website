@@ -1,14 +1,32 @@
 ---
-- name: Ensure site is up to date
+- name: Ensure site is up to date (RedHat)
   sudo: true
   yum: name=* state=latest
-- name: Install Base dependencies
+  when: ansible_os_family == 'RedHat'
+
+- name: Ensure site is up to date (Debian)
+  sudo: true
+  apt: name=* state=latest
+  when: ansible_os_family == 'Debian'
+
+- name: Install Base dependencies (RedHat)
   sudo: true
   yum:
     name: "{{ item }}"
     state: present
   with_items:
     base_dependencies.ansible_os_family
+  when: ansible_os_family == 'RedHat'
+
+- name: Install Base dependencies (Debian)
+  sudo: true
+  apt:
+    name: "{{ item }}"
+    state: present
+  with_items:
+    base_dependencies.ansible_os_family
+  when: ansible_os_family == 'Debian'
+
 
 - name: Get Ruby
   get_url:
