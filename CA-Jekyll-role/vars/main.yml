@@ -7,9 +7,13 @@ base_dependencies:
   - which
   - gcc
   - tar
+  - wget
+
 ruby:
   src_url: http://cache.ruby-lang.org/pub/ruby/
   version:
     major: 2
     minor: 2
     patch: 1
+
+cflags: "-fPIC"
