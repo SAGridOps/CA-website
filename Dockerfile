@@ -19,6 +19,7 @@ ENV ANSIBLE_LIBRARY /opt/ansible/ansible/library
 WORKDIR /root
 RUN git clone https://github.com/SAGridOps/CA-website
 WORKDIR CA-website
+RUN git pull
 RUN git checkout master
 RUN mkdir roles ; ln -s CA-Jekyll-role roles/CA-Jekyll-role
 RUN pwd

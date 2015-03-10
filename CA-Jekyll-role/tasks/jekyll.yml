@@ -23,12 +23,12 @@
     creates: "/root/ruby-{{ ruby.version.major }}.{{ ruby.version.minor }}.{{ ruby.version.patch }}"
 
 - name: Configure Ruby
-  command: "CFLAGS={{ cflags }} ./configure"
+  command: ./configure
   args:
     chdir: "/root/ruby-{{ ruby.version.major }}.{{ ruby.version.minor }}.{{ ruby.version.patch }}"
 
 - name: Build Ruby
-  command: make (fPIC)
+  command: "CFLAGS={{ cflags }} make"
   args:
     chdir: "/root/ruby-{{ ruby.version.major }}.{{ ruby.version.minor }}.{{ ruby.version.patch }}"
 
