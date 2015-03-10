@@ -2,4 +2,4 @@
 # vars file for CA-Jekyll-role
 jekyll_dependencies:
   - ruby
-  - ruby-dev
+  - ruby-devel
