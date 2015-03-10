@@ -28,7 +28,8 @@
     chdir: "/root/ruby-{{ ruby.version.major }}.{{ ruby.version.minor }}.{{ ruby.version.patch }}"
 
 - name: Build Ruby
-  command: "CFLAGS=\"{{ cflags }}\" make"
+  command: make
+  environment: { CFLAGS: "{{ cflags }}"}
   args:
     chdir: "/root/ruby-{{ ruby.version.major }}.{{ ruby.version.minor }}.{{ ruby.version.patch }}"
 

@@ -8,6 +8,8 @@ base_dependencies:
   - gcc
   - tar
   - wget
+  - libffi-devel
+  - coreutils
 
 ruby:
   src_url: http://cache.ruby-lang.org/pub/ruby/
