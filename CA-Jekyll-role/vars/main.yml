@@ -11,6 +11,7 @@ base_dependencies:
     - wget
     - libffi-devel
     - coreutils
+    - openssl-devel
   Debian:
     - build-essential
     - tar
@@ -18,7 +19,7 @@ base_dependencies:
     - libffi-dev
     - libffi
     - coreutils
-    
+    - libssl-dev
 ruby:
   src_url: http://cache.ruby-lang.org/pub/ruby/
   version:
