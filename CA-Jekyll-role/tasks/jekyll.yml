@@ -14,6 +14,7 @@
   get_url:
     url: "{{ ruby.src_url }}/{{ ruby.version.major }}.{{ ruby.version.minor }}/ruby-{{ ruby.version.major }}.{{ ruby.version.minor }}.{{ ruby.version.patch }}.tar.gz"
     dest: /tmp/ruby.tar.gz
+    timeout: 60
 
 - name: Unpack Ruby
   command: tar xfz ruby.tar.gz -C /root/ruby
