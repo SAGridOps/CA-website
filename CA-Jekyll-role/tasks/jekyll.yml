@@ -12,7 +12,7 @@
 
 - name: Get Ruby
   get_url:
-    src: {{ ruby.src_url }}/{{ version.major }}.{{ version.minor }}/ruby-{{ version.major }}.{{ version.minor }}.{{ version.patch }}.tar.gz
+    src: "{{ ruby.src_url }}/{{ version.major }}.{{ version.minor }}/ruby-{{ version.major }}.{{ version.minor }}.{{ version.patch }}.tar.gz"
     dest: /tmp/ruby.tar.gz
     creates: /tmp/ruby.tar.gz
 
