@@ -23,7 +23,7 @@
     creates: "/root/ruby-{{ ruby.version.major }}.{{ ruby.version.minor }}.{{ ruby.version.patch }}"
 
 - name: Configure Ruby
-  command: ./configure
+  command: "./configure --prefix={{ ruby.install_path }}"
   args:
     chdir: "/root/ruby-{{ ruby.version.major }}.{{ ruby.version.minor }}.{{ ruby.version.patch }}"
 

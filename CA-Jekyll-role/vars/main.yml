@@ -17,5 +17,6 @@ ruby:
     major: 2
     minor: 1
     patch: 5
+  install_path: /usr/
 
 cflags: "-fPIC"
