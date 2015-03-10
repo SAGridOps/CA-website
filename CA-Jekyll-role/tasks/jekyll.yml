@@ -17,10 +17,10 @@
     timeout: 60
 
 - name: Unpack Ruby
-  command: tar xfz ruby.tar.gz -C /root/ruby
+  command: tar xfz ruby.tar.gz -C /root/
   args:
     chdir: /tmp
-    creates: /root/ruby
+    creates: "/root/ruby-{{ ruby.version.major }}.{{ ruby.version.minor }}.{{ ruby.version.patch }}"
 
 - name: Configure Ruby
   command: ./configure
