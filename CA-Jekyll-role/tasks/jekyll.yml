@@ -17,16 +17,19 @@
     creates: /tmp/ruby.tar.gz
 
 - name: Unpack Ruby
-  command: tar xfz ruby.tar.gz -O /root/ruby
+  command: tar xfz ruby.tar.gz -C /root/ruby
+  args:
     chdir: /tmp
     creates: /root/ruby
 
 - name: Configure Ruby
   command: ./configure
+  args:
     chdir: /root/ruby
 
 - name: Build Ruby
   command: make
+  args:
     chdir: /root/ruby
 
 - name: Install Jekyll
