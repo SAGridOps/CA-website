@@ -1,7 +1,10 @@
 ---
 # vars file for CA-Jekyll-role
+# Ruby and Gems are of course needed for ruby.
+# You will need a compiler as well :) in order to build the gems
 jekyll_dependencies:
   - ruby
   - ruby-devel
   - rubygems
   - which
+  - gcc
