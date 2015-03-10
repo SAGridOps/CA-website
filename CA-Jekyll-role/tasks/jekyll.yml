@@ -25,12 +25,12 @@
 - name: Configure Ruby
   command: ./configure
   args:
-    chdir: /root/ruby
+    chdir: "/root/ruby-{{ ruby.version.major }}.{{ ruby.version.minor }}.{{ ruby.version.patch }}"
 
 - name: Build Ruby
   command: make
   args:
-    chdir: /root/ruby
+    chdir: "/root/ruby-{{ ruby.version.major }}.{{ ruby.version.minor }}.{{ ruby.version.patch }}"
 
 - name: Install Jekyll
   sudo: true
