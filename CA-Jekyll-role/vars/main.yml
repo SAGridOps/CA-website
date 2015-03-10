@@ -3,3 +3,5 @@
 jekyll_dependencies:
   - ruby
   - ruby-devel
+  - rubygems
+  - which
