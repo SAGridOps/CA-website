@@ -2,13 +2,32 @@
 - name: Ensure site is up to date
   sudo: true
   yum: name=* state=latest
-- name: Install Jekyll dependencies
+- name: Install Base dependencies
   sudo: true
   yum:
     name: "{{ item }}"
     state: present
   with_items:
-    jekyll_dependencies
+    base_dependencies
+
+- name: Get Ruby
+  get_url:
+    src: {{ ruby.src_url }}/{{ version.major }}.{{ version.minor }}/ruby-{{ version.major }}.{{ version.minor }}.{{ version.patch }}.tar.gz
+    dest: /tmp/ruby.tar.gz
+    creates: /tmp/ruby.tar.gz
+
+- name: Unpack Ruby
+  command: tar xfz ruby.tar.gz -O /root/ruby
+    chdir: /tmp
+    creates: /root/ruby
+
+- name: Configure Ruby
+  command: ./configure
+    chdir: /root/ruby
+
+- name: Build Ruby
+  command: make
+    chdir: /root/ruby
 
 - name: Install Jekyll
   sudo: true

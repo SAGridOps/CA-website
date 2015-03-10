@@ -1,10 +1,15 @@
 ---
 # vars file for CA-Jekyll-role
-# Ruby and Gems are of course needed for ruby.
+# Ruby and Gems are of course needed for ruby, but you can't get them for the SL6 OS
+# since the ruby version is too old. We'll get that from the source packages.
 # You will need a compiler as well :) in order to build the gems
-jekyll_dependencies:
-  - ruby
-  - ruby-devel
-  - rubygems
+base_dependencies:
   - which
   - gcc
+  - tar
+ruby:
+  src_url: http://cache.ruby-lang.org/pub/ruby/
+  version:
+    major: 2
+    minor: 2
+    patch: 1
