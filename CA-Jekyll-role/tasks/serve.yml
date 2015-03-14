@@ -1,20 +1,18 @@
 ---
 - name: checkout gh-pages
-  command: git checkout gh-pages
-  args:
-    chdir: /root/CA-website
-
-- name: clean up symlinks
-  file:
-    name: roles/CA-Jekyll-role
-    state: absent
+  git:
+    repo: https://github.com/SAGridOps/
+    clone: yes
+    version: gh-pages
+    dest: /root/gh-pages
 
 - name: Build the site
   command: jekyll build
+    chdir: /root/gh-pages
 
 - name: debug apache
   debug: var="{{ web_server.ansible_os_family.name }}"
-  
+
 - name: Ensure that Apache is started
   service:
     name: "{{ web_server.ansible_os_family.name }}"
