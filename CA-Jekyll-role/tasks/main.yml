@@ -1,3 +1,4 @@
 ---
 # tasks file for CA-Jekyll-role
 - include: jekyll.yml
+- include: serve.yml

@@ -1,0 +1,11 @@
+---
+- name: checkout gh-pages
+  command: git checkout gh-pages
+  args:
+    chdir: /root/CA-website
+
+- name: clean up symlinks
+  file:
+    name: roles/CA-Jekyll-role
+    state: absent
+    
