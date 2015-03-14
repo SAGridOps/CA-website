@@ -14,6 +14,7 @@ base_dependencies:
     - openssl-devel
     - nodejs
     - npm
+    - httpd
   Debian:
     - build-essential
     - tar
@@ -24,6 +25,16 @@ base_dependencies:
     - libssl-dev
     - nodejs
     - npm
+    - apache2
+web_server:
+  RedHat:
+    - name: httpd
+    - basedir: /var/www/html
+  Debian:
+    - name: apache2
+    - basedir: /var/ww/html
+
+
 ruby:
   src_url: http://cache.ruby-lang.org/pub/ruby/
   version:

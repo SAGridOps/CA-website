@@ -8,4 +8,14 @@
   file:
     name: roles/CA-Jekyll-role
     state: absent
-    
+
+- name: Build the site
+  command: jekyll build
+
+- name: debug apache
+  debug: var="{{ web_server.ansible_os_family.name }}"
+  
+- name: Ensure that Apache is started
+  service:
+    name: "{{ web_server.ansible_os_family.name }}"
+    state: started
